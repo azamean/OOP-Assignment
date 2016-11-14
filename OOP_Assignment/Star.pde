@@ -16,7 +16,7 @@ class Star {
   void show()
   {
     fill(255);
-    noStroke();
+   // noStroke();
     
     float sx = map(x / z, 0, 1, 0, width/2);
     float sy = map(y / z, 0, 1, 0, height/2);    
@@ -38,7 +38,7 @@ class Star {
   {
     z = z - speed;
     
-    if(z < 1)
+    if(z < 2)
     {
       z = width/2;
       x = random(-width/2, width/2);

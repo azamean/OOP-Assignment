@@ -1,5 +1,5 @@
 import ddf.minim.*;
-Button button;
+Button button, button2;
 
 Star[] stars = new Star[800];
 float speed;
@@ -19,17 +19,19 @@ void setup()
    {
      stars[i] = new Star();
    }
-   smooth();
-   button = new Button("Increase Speed", 700, 350, 80, 40);
+   //smooth();
+   button = new Button("Increase Speed", 700, 300, 100, 80);
+   button2 = new Button("Decrease Speed", 700, 400, 100, 80);
 }
 
 
 void draw()
-{
-  //speed = map(mouseX, 0, width, 0, 50);
-  
+{  
   background(0);
-  translate(width/2, height/2);
+  //translate(width/2, height/2);
+  
+  button.Draw();
+  button2.Draw();
   
   for(int i = 0; i < stars.length; i++)
   {
@@ -37,16 +39,16 @@ void draw()
     stars[i].show();
   }
   
-  if(button.mouseOver())
-  {
-      speed = speed + 5;
-  }
-    
 }
 
 void mousePressed()
 {
   if (button.mouseOver()) {
-    print("Clicked: ");    
+    print("Clicked"); 
+    if(speed < 30){
+      speed = speed + 1;
+    }
   }
+  
+
 }

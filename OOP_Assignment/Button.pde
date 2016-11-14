@@ -14,8 +14,8 @@ class Button
   }
   
   void Draw() {
-    fill(255);
-    stroke(255);
+    fill(255,255,255);
+    stroke(255,255,255);
     rect(x, y, w, h, 10);
     textAlign(CENTER, CENTER);
     fill(0);

@@ -26,6 +26,8 @@ class Star {
   
   void update()
   {
+    z = z - speed;
+    
     if(z < 1)
     {
       z = width/2;

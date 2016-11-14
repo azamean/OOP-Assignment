@@ -1,4 +1,5 @@
 import ddf.minim.*;
+Button button;
 
 Star[] stars = new Star[800];
 float speed;
@@ -9,16 +10,17 @@ AudioPlayer player;
 
 void setup() 
 {
- size(800, 800);
+   size(800, 800);
    minim = new Minim(this);
    player = minim.loadFile("Space.mp3");
    player.play();
  
- for(int i = 0; i < stars.length; i++)
- {
-   stars[i] = new Star();
- }
- 
+   for(int i = 0; i < stars.length; i++)
+   {
+     stars[i] = new Star();
+   }
+   
+   
 }
 
 
@@ -33,5 +35,12 @@ void draw()
   {
     stars[i].update();
     stars[i].show();
+  }
+}
+
+void mousePressed()
+{
+  if (button.mouseOver()) {
+    print("Clicked: ");    
   }
 }

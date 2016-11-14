@@ -11,7 +11,18 @@ class Star {
     pz = z;
     
   }
-  
+  void show()
+  {
+    fill(255);
+    noStroke();
+    
+    float sx = map(x / z, 0, 1, 0, width/2);
+    float sy = map(y / z, 0, 1, 0, height/2);
+    
+    float r = map(z, 0, width/2, 16, 0);
+    
+    ellipse(sx,sy,r,r);
+  }
   
   
   

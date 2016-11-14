@@ -49,6 +49,11 @@ void mousePressed()
       speed = speed + 1;
     }
   }
-  
+    if (button2.mouseOver()) {
+    print("Clicked"); 
+    if(speed > 0){
+      speed = speed - 1;
+    }
+  }
 
 }

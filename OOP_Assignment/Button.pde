@@ -14,11 +14,14 @@ class Button
   }
   
   void Draw() {
-    fill(255,255,255);
-    stroke(255,255,255);
+    PFont font;
+    font = loadFont("SWTORTrajan-16.vlw");
+    fill(0);
+    stroke(255);
     rect(x, y, w, h, 10);
     textAlign(CENTER, CENTER);
-    fill(0);
+    fill(255);
+    textFont(font, 14);
     text(label, x + (w / 2), y + (h / 2));
   }
   

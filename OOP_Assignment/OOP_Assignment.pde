@@ -20,8 +20,8 @@ void setup()
      stars[i] = new Star();
    }
    //smooth();
-   button = new Button("Increase Speed", 700, 300, 100, 80);
-   button2 = new Button("Decrease Speed", 700, 400, 100, 80);
+   button = new Button("Increase Speed", 650, 300, 150, 80);
+   button2 = new Button("Decrease Speed", 650, 400, 150, 80);
 }
 
 

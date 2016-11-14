@@ -13,6 +13,15 @@ class Button
     h = heightB;
   }
   
+  void Draw() {
+    fill(255);
+    stroke(255);
+    rect(x, y, w, h, 10);
+    textAlign(CENTER, CENTER);
+    fill(0);
+    text(label, x + (w / 2), y + (h / 2));
+  }
+  
   boolean mouseOver()
   {
     if (mouseX > x && mouseX < (x + w) && mouseY > y && mouseY < (y + h)) {

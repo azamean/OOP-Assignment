@@ -24,6 +24,17 @@ class Star {
     ellipse(sx,sy,r,r);
   }
   
+  void update()
+  {
+    if(z < 1)
+    {
+      z = width/2;
+      x = random(-width/2, width/2);
+      y = random(-width/2, width/2);
+      pz = z;
+    }
+  }
+  
   
   
 }

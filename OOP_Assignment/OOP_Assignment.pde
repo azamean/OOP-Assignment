@@ -1,4 +1,5 @@
 Star[] stars = new Star[800];
+float speed;
 
 void setup() 
 {
@@ -14,10 +15,13 @@ void setup()
 
 void draw()
 {
+  //speed = map(mouseX, 0, width, 0, 50);
+  
   background(0);
   
   for(int i = 0; i < stars.length; i++)
   {
+    stars[i].update();
     stars[i].show();
   }
 }

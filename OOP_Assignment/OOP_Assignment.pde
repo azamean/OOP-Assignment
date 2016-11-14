@@ -19,14 +19,14 @@ void setup()
    {
      stars[i] = new Star();
    }
-   
-   
+   smooth();
+   button = new Button("Increase Speed", 700, 350, 80, 40);
 }
 
 
 void draw()
 {
-  speed = map(mouseX, 0, width, 0, 50);
+  //speed = map(mouseX, 0, width, 0, 50);
   
   background(0);
   translate(width/2, height/2);
@@ -36,6 +36,12 @@ void draw()
     stars[i].update();
     stars[i].show();
   }
+  
+  if(button.mouseOver())
+  {
+      speed = speed + 5;
+  }
+    
 }
 
 void mousePressed()

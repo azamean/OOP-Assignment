@@ -1,8 +1,9 @@
 import ddf.minim.*;
-Button button, button2;
+Button button, button2, button3;
 
 Star[] stars = new Star[800];
 float speed;
+boolean stats = false;
 
 Minim minim;
 AudioPlayer player;
@@ -22,6 +23,7 @@ void setup()
    //smooth();
    button = new Button("Increase Speed", 650, 300, 150, 80);
    button2 = new Button("Decrease Speed", 650, 400, 150, 80);
+   button3 = new Button("Display Statistics", 50, 10, 200, 80);
 
 }
 
@@ -33,12 +35,18 @@ void draw()
   
   button.Draw();
   button2.Draw();
+  button3.Draw();
   displaySpeed();
   
   for(int i = 0; i < stars.length; i++)
   {
     stars[i].update();
     stars[i].show();
+  }
+  
+  if(stats)
+  {
+    
   }
 
 }
@@ -57,6 +65,10 @@ void mousePressed()
     if(speed > 0){
       speed = speed - 1;
     }
+  }
+  
+  if (button.mouseOver()) {
+    stats = !stats;
   }
 }
 void displaySpeed()

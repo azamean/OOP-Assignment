@@ -54,23 +54,28 @@ void draw()
 
 void mousePressed()
 {
-  if (button.mouseOver()) {
-    print("Clicked"); 
-    if(speed < 29){
+  if (button.mouseOver()) 
+  {
+    if(speed < 29)
+    {
       speed = speed + 1;
-     }
+    }
   }
   
-    if (button2.mouseOver()) {
-    print("Clicked"); 
-    if(speed > 0){
+  if (button2.mouseOver()) 
+  {
+    if(speed > 0)
+    {
       speed = speed - 1;
     }
-  }  
-  if (button3.mouseOver()) {
+  }
+    
+  if (button3.mouseOver()) 
+  {
      stats = !stats;
   }
-  if (button4.mouseOver()) {
+  if (button4.mouseOver()) 
+  {
      radar = !radar;
   }
 }

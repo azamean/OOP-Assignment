@@ -18,7 +18,7 @@ AudioPlayer player;
 
 void setup() 
 {
-   size(800, 800);
+   size(1200, 800);
    minim = new Minim(this);
    player = minim.loadFile("Space.mp3");
    player.play();
@@ -28,8 +28,8 @@ void setup()
      stars[i] = new Star();
    }
    //smooth();
-   button = new Button("Increase Speed", 650, 300, 150, 80);
-   button2 = new Button("Decrease Speed", 650, 400, 150, 80);
+   button = new Button("Increase Speed", 1050, 300, 150, 80);
+   button2 = new Button("Decrease Speed", 1050, 400, 150, 80);
    button3 = new Button("Display Statistics", 50, 10, 200, 80);
    button4 = new Button("Scan for \nAnomalies", 50, 690, 150, 100); 
     
@@ -83,7 +83,7 @@ void mousePressed()
   if (button4.mouseOver()) 
   {
      radar = !radar;
-     Btarget=random(2, 10);
+     //Btarget=random(8, 25);
   }
 }
 
@@ -146,6 +146,6 @@ void waves()
     lasty = y;
   }
   t += 0.3;  
-  B += (Btarget-B)/10;
+  B += (speed-B)/10;
 
 }

@@ -92,12 +92,19 @@ void displayStats()
   String statistics = "Hull Integrity: " + ((100 - speed) * 0.98) + 
   "\nShield Strength: " + (100 - (speed*2)) * 0.9 + "\nWarp Core Stable" ;
   
-  textFont(font, 12);
-  fill(240, 45, 45);
-  text(statistics, 100, 120); 
+  textFont(font, 14);
+  fill(175, 15, 15);
+  text(statistics, 110, 120); 
 }
 
 void showRadar()
 {
-
+  fill(0);
+  stroke(255);
+  ellipse(125, 550, 250, 250);
+  line(125, 675, 300, 675);
+  line(178, 665, 275, 665);
+  fill(175,15,15);
+  stroke(0);
+  triangle(205, 655, 240, 630, 260, 655);
 }

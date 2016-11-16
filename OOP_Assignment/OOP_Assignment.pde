@@ -4,6 +4,7 @@ Button button, button2, button3, button4;
 Star[] stars = new Star[800];
 float speed;
 boolean stats = false;
+boolean radar = false;
 
 Minim minim;
 AudioPlayer player;
@@ -46,10 +47,8 @@ void draw()
     stars[i].show();
   }
   
-  if(stats)
-  {
-    displayStats();
-  }
+  if(stats) displayStats();
+  if(radar) showRadar();
 
 }
 
@@ -67,12 +66,15 @@ void mousePressed()
     if(speed > 0){
       speed = speed - 1;
     }
-  }
-  
+  }  
   if (button3.mouseOver()) {
      stats = !stats;
   }
+  if (button4.mouseOver()) {
+     radar = !radar;
+  }
 }
+
 void displaySpeed()
 {       
       PFont font;
@@ -81,6 +83,7 @@ void displaySpeed()
       textFont(font, 30);
       text(display, width/2, 700); 
 }
+
 void displayStats()
 {
   PFont font;
@@ -92,4 +95,9 @@ void displayStats()
   textFont(font, 12);
   fill(240, 45, 45);
   text(statistics, 100, 120); 
+}
+
+void showRadar()
+{
+
 }

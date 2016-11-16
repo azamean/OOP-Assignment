@@ -1,5 +1,5 @@
 import ddf.minim.*;
-Button button, button2, button3;
+Button button, button2, button3, button4;
 
 Star[] stars = new Star[800];
 float speed;
@@ -24,7 +24,8 @@ void setup()
    button = new Button("Increase Speed", 650, 300, 150, 80);
    button2 = new Button("Decrease Speed", 650, 400, 150, 80);
    button3 = new Button("Display Statistics", 50, 10, 200, 80);
-
+   button4 = new Button("Scan for \nAnomalies", 50, 690, 150, 100); 
+    
 }
 
 
@@ -36,6 +37,7 @@ void draw()
   button.Draw();
   button2.Draw();
   button3.Draw();
+  button4.Draw();
   displaySpeed();
   
   for(int i = 0; i < stars.length; i++)
@@ -85,6 +87,7 @@ void displayStats()
   font = loadFont("SWTORTrajan-16.vlw");
   
   String statistics = "Hull Integrity: " + ((100 - speed) * 0.98) + 
+  "\nShield Strength: " + (100 - (speed*2)) * 0.9 + "\nWarp Core Stable" ;
   
   textFont(font, 12);
   fill(240, 45, 45);

@@ -46,7 +46,7 @@ void draw()
   
   if(stats)
   {
-    
+    displayStats();
   }
 
 }
@@ -78,4 +78,13 @@ void displaySpeed()
       String display = "Warp: " + speed / 3 + "\nCurrent Velocity";
       textFont(font, 30);
       text(display, width/2, 700); 
+}
+void displayStats()
+{
+  PFont font;
+  font = loadFont("SWTORTrajan-16.vlw");
+  
+  String statistics = "Hull Integrity: " + ((100 - speed) * 0.98) + "%";
+  textFont(font, 12);
+  text(statistics, 50, 100); 
 }

@@ -120,6 +120,7 @@ void showRadar()
   stroke(0);
   triangle(205, 655, 240, 630, 260, 655);
   
+  waves();
 }
 
 float wave(float x) {

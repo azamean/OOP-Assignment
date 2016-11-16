@@ -5,6 +5,12 @@ Star[] stars = new Star[800];
 float speed;
 boolean stats = false;
 boolean radar = false;
+float Btarget = 9.0;
+float A = 1.0;
+float K = 8.0;
+float B = 9.0;
+float t = 0.0;
+float step = 1;
 
 Minim minim;
 AudioPlayer player;
@@ -77,6 +83,7 @@ void mousePressed()
   if (button4.mouseOver()) 
   {
      radar = !radar;
+     Btarget=random(2, 10);
   }
 }
 
@@ -112,4 +119,28 @@ void showRadar()
   fill(175,15,15);
   stroke(0);
   triangle(205, 655, 240, 630, 260, 655);
+  
+}
+
+float wave(float x) {
+  return A*pow(K/(K+pow(x, 4)), K)*cos(B*x-t);
+}
+
+void waves()
+{
+  float lastx = 0.0;
+  float lasty = 550;
+  for (float x=0; x<225; x+=step) {
+    float tmpx = map(x, 0, 250, -3, 3);    
+    float tmpy = wave(tmpx);
+    float y = map(tmpy, -3, 3, 500, 600);
+    fill(255);
+    stroke(255);
+    line(lastx, lasty, x, y);
+    lastx = x;
+    lasty = y;
+  }
+  t += 0.3;  
+  B += (Btarget-B)/10;
+
 }

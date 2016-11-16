@@ -84,7 +84,9 @@ void displayStats()
   PFont font;
   font = loadFont("SWTORTrajan-16.vlw");
   
-  String statistics = "Hull Integrity: " + ((100 - speed) * 0.98) + "%";
+  String statistics = "Hull Integrity: " + ((100 - speed) * 0.98) + 
+  
   textFont(font, 12);
-  text(statistics, 100, 100); 
+  fill(240, 45, 45);
+  text(statistics, 100, 120); 
 }

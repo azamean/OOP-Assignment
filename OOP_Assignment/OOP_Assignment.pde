@@ -132,12 +132,16 @@ void waves()
   float lastx = 0.0;
   float lasty = 550;
   for (float x=0; x<225; x+=step) {
-    float tmpx = map(x, 0, 250, -3, 3);    
+    float tmpx = map(x, 0, 250, -1, 1);    
     float tmpy = wave(tmpx);
-    float y = map(tmpy, -3, 3, 500, 600);
+    float y = map(tmpy, -1, 1, 500, 600);
     fill(255);
     stroke(255);
     line(lastx, lasty, x, y);
+    line(lastx*1.05, lasty*0.95, x*1.05, y*0.95);
+    line(lastx*0.90, lasty*0.97, x*0.90, y*0.97);
+    line(lastx*0.92, lasty*0.92, x*0.92, y*0.92);
+    line(lastx*0.96, lasty*0.99, x*0.96, y*0.99);
     lastx = x;
     lasty = y;
   }

@@ -39,7 +39,7 @@ void setup()
 void draw()
 {  
   background(0);
-  //translate(width/2, height/2);
+  //
   
   button.Draw();
   button2.Draw();
@@ -49,8 +49,11 @@ void draw()
   
   for(int i = 0; i < stars.length; i++)
   {
+    pushMatrix();
+    translate(width/2, height/2);
     stars[i].update();
     stars[i].show();
+    popMatrix();
   }
   
   if(stats) displayStats();

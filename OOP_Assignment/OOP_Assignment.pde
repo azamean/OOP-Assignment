@@ -12,6 +12,8 @@ Star[] stars = new Star[800];
 float speed;
 boolean stats = false;
 boolean radar = false;
+boolean destroyed = false;
+
 float Btarget = 9.0;
 float A = 1.0;
 float K = 8.0;
@@ -80,6 +82,7 @@ void draw()
   
   if(stats) displayStats();
   if(radar) showRadar();
+  if(destroyed) destroy();
 
 }
 
@@ -91,7 +94,7 @@ void mousePressed()
   
   if (button.mouseOver()) 
   {
-    if(speed < 29)
+    if(speed < 35)
     {
       speed = speed + 1;
     }
@@ -122,9 +125,30 @@ void displaySpeed()
 {       
       PFont font;
       font = loadFont("SWTORTrajan-16.vlw");
-      String display = "Warp: " + speed / 3 + "\nCurrent Velocity";
-      textFont(font, 30);
-      text(display, width/2, 700); 
+      if(speed < 29)
+      { 
+        fill(255);
+        String display = "Warp: " + speed / 3 + "\nCurrent Velocity";
+        textFont(font, 30);
+        text(display, width/2, 700);
+      }
+      
+      if(speed >= 30 && speed < 35)
+      {
+        fill(230, 0, 0);
+        String display = "Warp: 9.99999 \nWARNING: APPROACHING TRANSWARP THRESHOLD";
+        String warning = "REDUCE SPEED IMMEDIATELY";
+        textFont(font, 30);
+        text(display, width/2, 700);
+        textFont(font, 50);
+        text(warning, width/2, height/2);        
+      }
+      
+      if(speed == 35)
+      {
+        destroyed = true;
+      }
+      
 }
 
 //Display statics method
@@ -137,9 +161,21 @@ void displayStats()
   String statistics = "Hull Integrity: " + ((100 - speed) * 0.98) + 
   "\nShield Strength: " + (100 - (speed*2)) * 0.9 + "\nWarp Core Stable" ;
   
-  textFont(font, 14);
-  fill(175, 15, 15);
-  text(statistics, 110, 120); 
+  String unstable = "Hull Integrity: " + ((100 - speed) * 0.98) + 
+  "\nShield Strength: " + (100 - (speed*2)) * 0.9 + "\nWarp Core Stable" ;
+  
+  if(speed < 30)
+  {
+    textFont(font, 16);
+    fill(230, 0, 0);
+    text(statistics, 110, 120); 
+  }
+  if(speed > 30)
+  {
+    textFont(font, 16);
+    fill(230, 0, 0);
+    text(unstable, 110, 120); 
+  }
 }
 
 //Radar method
@@ -201,4 +237,19 @@ void waves()
   t += 0.3;  
   B += (speed-B)/10;
 
+}
+
+void destroy()
+{
+        speed = 500;
+        
+        PFont font;
+        font = loadFont("SWTORTrajan-16.vlw");
+        
+        fill(230, 0, 0);
+        String display = "Warp: 10 \nTRANSWARP THRESHOLD EXCEEDED";
+        String display2 = "Unfortunately your\n crew has liquified.";
+        textFont(font, 40);
+        text(display, width/2, 700);                
+        text(display2, width/2, height/2); 
 }

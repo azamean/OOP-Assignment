@@ -2,7 +2,7 @@
 
 Youtube video link:
 
-[![Video](https://youtu.be/eNwJD06pGTw)](https://www.youtube.com/watch?v=eNwJD06pGTw)
+[![Video](http://img.youtube.com/vi/https://youtu.be/eNwJD06pGTw/0.jpg)](https://www.youtube.com/watch?v=eNwJD06pGTw)
 
 HUD for Warp System
 
